@@ -407,9 +407,8 @@ class Parser {
         const component = opts.component || this.options.trans.component;
         const i18nKey = opts.i18nKey || this.options.trans.i18nKey;
 
-        const reTrans = new RegExp('<' + component + '([^]*?)>([^]*?)</\\s*' + component + '\\s*>', 'gim');
+        const reTrans = new RegExp('<' + component + '[\\s]{1}([^]*?)>([^]*?)</\\s*' + component + '\\s*>', 'gim');
         const reAttribute = /\b(\S+)\s*=\s*({.*?}|".*?"|'.*?')/gm;
-
         let r;
         while ((r = reTrans.exec(content))) {
             const attributes = {};
